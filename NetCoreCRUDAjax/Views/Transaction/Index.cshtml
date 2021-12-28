@@ -27,21 +27,24 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+            @if (Model != null)
             {
-                <tr>
-                    <td>@item.AccountNumber</td>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.AccountNumber</td>
 
-                    <td>@item.BeneficiaryName</td>
+                        <td>@item.BeneficiaryName</td>
 
-                    <td>@item.BankName</td>
+                        <td>@item.BankName</td>
 
-                    <td>@item.TransactionDate</td>
+                        <td>@item.TransactionDate</td>
 
-                    <td>@item.Ammount</td>
+                        <td>@item.Ammount</td>
 
-                    <td>xx</td>
-                </tr>
+                        <td>xx</td>
+                    </tr>
+                }
             }
         </tbody>
     </table>

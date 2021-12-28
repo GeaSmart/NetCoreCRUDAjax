@@ -20,7 +20,8 @@ namespace NetCoreCRUDAjax.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            return View(await context.Transactions.ToListAsync());
+            var transacciones = await context.Transactions.ToListAsync();
+            return View(transacciones);
         }
 
         [HttpGet]
