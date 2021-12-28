@@ -1,0 +1,47 @@
+﻿@model IEnumerable<NetCoreCRUDAjax.Models.Transaction>
+
+    <h1>Index</h1>
+    <p>
+        <a asp-action="Create">Create new</a>
+    </p>
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(x => x.AccountNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(x => x.BeneficiaryName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(x => x.BankName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(x => x.TransactionDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(x => x.Ammount)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.AccountNumber</td>
+
+                    <td>@item.BeneficiaryName</td>
+
+                    <td>@item.BankName</td>
+
+                    <td>@item.TransactionDate</td>
+
+                    <td>@item.Ammount</td>
+
+                    <td>xx</td>
+                </tr>
+            }
+        </tbody>
+    </table>
