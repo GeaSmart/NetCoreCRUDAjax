@@ -1,0 +1,47 @@
+﻿@model IEnumerable<NetCoreCRUDAjax.Models.Transaction>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(x => x.AccountNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(x => x.BeneficiaryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(x => x.BankName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(x => x.TransactionDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(x => x.Ammount)
+            </th>
+            <th>
+                <a onclick="showModal('@Url.Action("AddOrEdit","Transaction",null, Context.Request.Scheme)', 'Nueva transacción')" class="btn btn-success text-white"><i class="fas fa-random"></i> Nueva Transacción</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.AccountNumber</td>
+
+                    <td>@item.BeneficiaryName</td>
+
+                    <td>@item.BankName</td>
+
+                    <td>@item.TransactionDate</td>
+
+                    <td>@item.Ammount</td>
+
+                    <td>xx</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

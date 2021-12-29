@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NetCoreCRUDAjax.Helper;
 using NetCoreCRUDAjax.Models;
 using System;
 using System.Collections.Generic;
@@ -55,8 +56,9 @@ namespace NetCoreCRUDAjax.Controllers
                     context.Transactions.Update(transaction);                    
                     await context.SaveChangesAsync();
                 }
+                return Json(new { isValid = true, html = RenderRazor.RenderRazorViewToString(this,"_ViewAll",context.Transactions.ToList()) });
             }
-            return View(transaction);
+            return Json(new { isValid = false, html = RenderRazor.RenderRazorViewToString(this, "AddOrEdit", transaction) });
         }
 
         [HttpGet]
@@ -83,6 +85,5 @@ namespace NetCoreCRUDAjax.Controllers
             await context.SaveChangesAsync();
             return View("Index",await context.Transactions.ToListAsync());
         }
-
     }
 }
