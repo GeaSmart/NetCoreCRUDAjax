@@ -19,7 +19,7 @@
                 @Html.DisplayNameFor(x => x.Ammount)
             </th>
             <th>
-                <a onclick="showModal('@Url.Action("AddOrEdit","Transaction",null, Context.Request.Scheme)', 'Nueva transacción')" class="btn btn-success text-white"><i class="fas fa-random"></i> Nueva Transacción</a>
+                <a onclick="showModal('@Url.Action("AddOrEdit","Transaction",new { Id = 0 }, Context.Request.Scheme)', 'Nueva transacción')" class="btn btn-success text-white"><i class="fas fa-random"></i> Nueva Transacción</a>
             </th>
         </tr>
     </thead>

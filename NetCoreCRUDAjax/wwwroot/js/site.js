@@ -3,6 +3,16 @@
 
 // Write your JavaScript code.
 
+$(function () {
+    $("#loaderbody").addClass('hide');
+
+    $(document).bind('ajaxStart', function () {
+        $("#loaderbody").removeClass('hide');
+    }).bind('ajaxStop', function () {
+        $("#loaderbody").addClass('hide');
+    });
+});
+
 function showModal(url, title) {
     $.ajax({
         type: "GET",
@@ -29,6 +39,9 @@ function jQueryAjaxPost(form) {
                     $("#form-modal .modal-body").html('');
                     $("#form-modal .modal-title").html('');
                     $("#form-modal").modal('hide');
+
+                    //notify notification
+                    $.notify('Datos registrados', { globalPosition:'top-center', className:'success'});
                 }
                 else {
                     $("#form-modal .modal-body").html(response.html);
@@ -55,7 +68,9 @@ function jQueryAjaxDelete(form) {
                 contentType: false,
                 processData: false,
                 success: function (response) {
-                    $("#view-all").html(response.html);                    
+                    $("#view-all").html(response.html);
+                    //notify notification
+                    $.notify('Registro eliminado', { globalPosition: 'top-center', className: 'success' });
                 },
                 error: function (error) {
                     console.log(error)
@@ -67,4 +82,5 @@ function jQueryAjaxDelete(form) {
         }
         return false;
     }
+    return false;
 }
