@@ -26,6 +26,7 @@ namespace NetCoreCRUDAjax.Controllers
         }
 
         [HttpGet]
+        [NoDirectAccess]
         public async Task<ActionResult> AddOrEdit(int id = 0)
         {
             if (id == 0)
