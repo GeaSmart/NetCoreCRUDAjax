@@ -37,10 +37,34 @@ function jQueryAjaxPost(form) {
             error: function (error) {
                 console.log(error)
             }            
-        })
-        return false;
+        })        
     }
     catch (e) {
         console.log(e);
+    }
+    return false;
+}
+
+function jQueryAjaxDelete(form) {
+    if (confirm('¿Está seguro de eliminar el registro?')) {
+        try {
+            $.ajax({
+                type: 'DELETE',
+                url: form.action,
+                data: new FormData(form),
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    $("#view-all").html(response.html);                    
+                },
+                error: function (error) {
+                    console.log(error)
+                }
+            })            
+        }
+        catch (ex) {
+            console.log(ex);
+        }
+        return false;
     }
 }

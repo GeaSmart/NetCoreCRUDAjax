@@ -83,7 +83,8 @@ namespace NetCoreCRUDAjax.Controllers
 
             context.Transactions.Remove(transaccion);
             await context.SaveChangesAsync();
-            return View("Index",await context.Transactions.ToListAsync());
+            //return View("Index",await context.Transactions.ToListAsync());
+            return Json(new { html = RenderRazor.RenderRazorViewToString(this, "_ViewAll", context.Transactions.ToList()) });
         }
     }
 }

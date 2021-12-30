@@ -32,6 +32,7 @@ namespace NetCoreCRUDAjax.Models
         public string BankName { get; set; }
 
         [DisplayName("Fecha")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime TransactionDate { get; set; }
 
         [Column(TypeName = "decimal(10,2)")]
